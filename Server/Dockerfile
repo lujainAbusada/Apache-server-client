@@ -11,3 +11,5 @@ RUN repotrack httpd
 COPY remote.repo etc/yum.repos.d
 
 RUN createrepo /localrepo
+
+

@@ -2,16 +2,12 @@ FROM centos:7
 
 WORKDIR /
 
-RUN wget "172.17.0.1:8899/localrepo"
-
 RUN yum-config-manager --disable repository = "*"
- 
-RUN mv /etc/yum.repos.d/*.repo /tmp/
 
-RUN echo -e "[remote]\nname=Apache\nbaseurl=file:///localrepo \nenabled=1 \ngpgcheck=0" > /etc/yum.repos.d/remote.repo 
+COPY localrepo localrepo
 
-RUN ls *.rpm > text.txt
+COPY remote.repo etc/yum.repos.d/
 
-RUN yum install -y --skip-broken $(cat text.txt)
- 
-RUN yum install httpd
+RUN yum repolist
+
+RUN yum install httpd -y
