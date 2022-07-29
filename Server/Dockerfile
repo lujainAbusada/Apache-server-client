@@ -8,11 +8,7 @@ RUN yum install -y createrepo
 
 RUN repotrack httpd
 
-RUN yum-config-manager --disable repository = "*"
- 
-RUN mv /etc/yum.repos.d/*.repo /tmp/
-
-RUN echo -e "[remote]\nname=Apache\nbaseurl=file:///localrepo \nenabled=1 \ngpgcheck=0" > /etc/yum.repos.d/remote.repo 
+COPY  /etc/yum.repos.d/remote.repo /etc/yum.repos.d/
 
 RUN createrepo /localrepo
 
