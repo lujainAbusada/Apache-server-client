@@ -1,12 +1,8 @@
 FROM centos:7
 
-WORKDIR /localrepo
+WORKDIR /
 
-RUN yum install -y  wget
-
-RUN yum install -y createrepo
-
-RUN repotrack httpd
+RUN wget "172.17.0.1:8899/localrepo"
 
 RUN yum-config-manager --disable repository = "*"
  
@@ -16,5 +12,8 @@ RUN echo -e "[remote]\nname=Apache\nbaseurl=file:///localrepo \nenabled=1 \ngpgc
 
 RUN createrepo /localrepo
 
+RUN ls *.rpm > text.txt
 
-
+RUN yum install -y --skip-broken $(cat text.txt)
+ 
+RUN yum install httpd
