@@ -14,5 +14,5 @@ if [ $RMC ]
 then
         docker rm -f httpd-client
 fi
-docker build -t lujainabusada/apacheclient  /home/lujainabusada/ApacheServerClient/Client
+docker build -t lujainabusada/apacheclient  .
 docker run -d -it  --name httpd-client lujainabusada/apacheclient
