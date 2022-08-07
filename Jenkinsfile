@@ -10,7 +10,7 @@ pipeline {
     
 		sh 'docker build -t lujain/Server .'
 		}
-		sh ' echo "Successful!"
+		sh ' echo "Successful!"'
             }
         }
         stage('Client Build') {
