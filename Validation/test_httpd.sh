@@ -1,6 +1,6 @@
 #!/bin/bash
 
-httpd=$(docker exec -ti httpd-client sh -c "rpm -qa"| grep httpd | head -1)
+httpd=$(docker exec  httpd-client sh -c "rpm -qa"| grep httpd | head -1)
 
 if [ $httpd ]
 then
