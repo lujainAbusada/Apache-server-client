@@ -18,4 +18,4 @@ fi
 
 docker build -t lujainabusada/apacheserver  .
 docker run -d -it -p 8899:80 --name httpd-container lujainabusada/apacheserver  
-docker cp httpd-container://localrepo /
+#docker cp httpd-container://localrepo /
