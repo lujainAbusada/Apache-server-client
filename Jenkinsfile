@@ -8,7 +8,7 @@ pipeline {
                
 		dir("Server") {
     
-		sh 'docker build -t lujain/Server .
+		sh 'docker build -t lujain/Server .'
 		}
 		sh ' echo "Successful!"
             }
