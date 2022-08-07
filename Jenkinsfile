@@ -6,10 +6,9 @@ pipeline {
 	}
 
     stages {
-        stage('Server Build') {
-	agent { dockerfile { dir 'Server' } }            
-	steps {
-		sh ' echo "Successful!"'
+        stage('Server Build') {            
+	dir("Server") {
+		sh ' ./runContainer"'
             }
         }
         stage('Client Build') {
