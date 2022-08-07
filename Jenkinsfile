@@ -7,9 +7,11 @@ pipeline {
 
     stages {
         stage('Server Build') {            
-	dir("Server") {
+	steps{
+		dir("Server") {
 		sh ' ./runContainer"'
             }
+		}
         }
         stage('Client Build') {
             steps {
