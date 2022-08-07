@@ -4,12 +4,8 @@ pipeline {
 
     stages {
         stage('Server Build') {
-            steps {
-               sh ' systemctl start docker'
-		dir("Server") {
-    
-		sh './runContainer'
-		}
+	agent { dockerfile { dir 'Server' } }            
+	steps {
 		sh ' echo "Successful!"'
             }
         }
