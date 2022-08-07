@@ -9,7 +9,7 @@ pipeline {
         stage('Server Build') {            
 	steps{
 		dir("Server") {
-		sh ' ./runContainer"'
+		sh ' ./runContainer'
             }
 		}
         }
