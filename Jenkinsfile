@@ -15,12 +15,20 @@ pipeline {
         }
         stage('Client Build') {
             steps {
-                sh 'echo "Building Client Container..."'
+     		dir("Client"){     
+           	sh 'echo "Building Client Container..."'
+		sh ' ./runContainer.sh'
+            }
+
             }
         }
         stage('Test') {
             steps {
+                dir("Validation"){                          
                 sh 'echo "Testing..."'
+                sh ' ./test_httpd.sh'
+            }
+
             }
         }
 
