@@ -5,7 +5,12 @@ pipeline {
     stages {
         stage('Server Build') {
             steps {
-                sh 'echo "Building Server Container..."'
+               
+		dir("Server") {
+    
+		sh 'docker build -t lujain/Server .
+		}
+		sh ' echo "Successful!"
             }
         }
         stage('Client Build') {
