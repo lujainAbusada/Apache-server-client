@@ -5,10 +5,10 @@ pipeline {
     stages {
         stage('Server Build') {
             steps {
-               
+               sh ' systemctl start docker'
 		dir("Server") {
     
-		sh 'docker build -t lujain/Server .'
+		sh './runContainer'
 		}
 		sh ' echo "Successful!"'
             }
