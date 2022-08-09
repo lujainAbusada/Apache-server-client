@@ -8,7 +8,7 @@ pipeline {
         
 	stage('Server Build') {            
 	     steps{
-		sh 'echo "try #5"'
+		sh 'echo "try #6"'
 		sh 'echo "Building Server Container..."'
 		dir("Server") {
 		sh ' ./runContainer.sh'
