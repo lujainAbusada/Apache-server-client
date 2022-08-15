@@ -4,8 +4,7 @@ pipeline {
 	  buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '3')
 	}
 
-    stages {
-        
+    stages { 
 	stage('Server Build') {            
 	     steps{
 		sh 'echo "Building Server Container..."'
